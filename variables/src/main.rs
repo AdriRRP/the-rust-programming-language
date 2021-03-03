@@ -9,4 +9,11 @@ fn main() {
      let x = x * 2;
 
      println!("The value of x is: {}", x);
+
+     let spaces = "     ";
+     let spaces = spaces.len();
+
+     // It wont't compile
+     //let mut spaces = "     ";
+     //spaces = spaces.len();
 }
