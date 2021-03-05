@@ -25,5 +25,9 @@ fn main() {
 
    let f: bool = false; // with explicit type annotation
 
+   let c = 'z';
+   let z = 'ℤ';
+   let heart_eyed_cat = '😻';
+
 
 }
