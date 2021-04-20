@@ -12,15 +12,15 @@ fn main() {
                     println!("error: argument isn't an unsigned int max 128 bits");
                     usage();
                     return;
-                },
+                }
             };
 
             println!("{}", fib(n));
-        },
+        }
         _ => {
             println!("error: arguments doesn'r match");
             usage();
-        },
+        }
     }
 }
 
@@ -31,7 +31,7 @@ fn usage() {
     println!("\t\tn must be an unsigned int");
 }
 
-fn fib(n: u128) -> u128{
+fn fib(n: u128) -> u128 {
     let mut n_minus_1: u128 = 0;
     let mut n_minus_2: u128 = 1;
 
@@ -47,5 +47,4 @@ fn fib(n: u128) -> u128{
         }
     }
     return n_minus_2 + n_minus_1;
-
 }

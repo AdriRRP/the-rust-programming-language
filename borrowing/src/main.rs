@@ -4,7 +4,7 @@ fn main() {
     let len = calculate_length(&s1);
 
     println!("The lengrh of '{}' is {}.", s1, len);
-    
+
     // let s = String::from("hello");
     // change(&s); WONT'T WORK!
 
@@ -19,7 +19,7 @@ fn main() {
 
     let r1 = &mut s;
     let r2 = &mut s;
-    
+
     println!("{}, {}", r1, r2);
 
     */
@@ -36,13 +36,13 @@ fn main() {
 
     let r1 = &s; // no problem
     let r2 = &s; // no problem
-    let r3 = &mut s; // BIG PROBLEM 
+    let r3 = &mut s; // BIG PROBLEM
 
     We also cannot have a mutable reference while we have an inmutable one.
     */
 
-    let r1 = &s;    // no problem
-    let r2 = &s;    // no problem
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
     println!("{} and {}", r1, r2);
     // r1 and r2 are no longer used after this point
 
@@ -58,13 +58,13 @@ fn main() {
     //  - At any given time, you can have either one mutable reference or
     //  any number of inmutable references.
     //  - References must always be valid.
-
 }
 
-fn calculate_length(s: &String) -> usize {  // s is a reference to a String
+fn calculate_length(s: &String) -> usize {
+    // s is a reference to a String
     s.len()
-}   // Here, s goes out of scope. But because it does not have ownership of what
-    // it refers to, nothing happens.
+} // Here, s goes out of scope. But because it does not have ownership of what
+  // it refers to, nothing happens.
 
 /*
 WON'T COMPILE! Because can't modify borrowed variable
@@ -88,8 +88,8 @@ fn dangle() -> &String { // dangle returns a reference to a String
 }   // Here, s goes out of scope, and is dropped. Its memory goes away.
     // Danger!
 */
- fn no_dangle() -> String {
-     let s = String::from("hello");
+fn no_dangle() -> String {
+    let s = String::from("hello");
 
-     s
- }
+    s
+}

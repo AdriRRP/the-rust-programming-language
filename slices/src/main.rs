@@ -20,7 +20,7 @@ fn main() {
             // Otherwise we return the length of the String
             s.len()
         }
-        
+
         let mut s = String::from("hello world");
 
         let word = first_word(&s); // word will get the value 5
@@ -33,7 +33,7 @@ fn main() {
         // With a second_word function, we need starting and ending index, and
         // we have even more values that were calculated fron data in a particular
         // state but aren't tied to that state at all.
-        
+
         // fn second_word(s: &String) -> (usize, usize) { ...
     }
     {
@@ -43,7 +43,7 @@ fn main() {
 
         let hello = &s[0..5];
         let world = &s[6..11];
-        
+
         // Slices are references to a portion of the String
         // We can create slices using a range within brackets by specifying
         // [starting_index..ending_index] (ending index is one more than the last position
@@ -75,20 +75,20 @@ fn main() {
 
         // fn second_word(s: &String) -> &str {
 
-        // We now have a strightforward API that's much harder to mess up, because the 
+        // We now have a strightforward API that's much harder to mess up, because the
         // compiler will wnsure the references into the String remain valid
     }
 
     {
         // IMPORTANT: String literals are slices
         let s = "Hello, world!"; // The type of s is &str: a slice pointing to that specific
-        // point of the binary. This is also why string literals are inmutable; &str is an 
-        // inmutable reference
+                                 // point of the binary. This is also why string literals are inmutable; &str is an
+                                 // inmutable reference
 
         // Knowing that you can take slices of literals and String values leads us to one more
         // improvement on first_word: change the signature
-        
-         fn first_word(s: &str) -> &str {
+
+        fn first_word(s: &str) -> &str {
             let bytes = s.as_bytes();
 
             for (i, &item) in bytes.iter().enumerate() {
@@ -100,23 +100,21 @@ fn main() {
             &s[..]
         }
 
-       
-        // If we have a string slice, we can pass that directly. If we have s String, we can 
+        // If we have a string slice, we can pass that directly. If we have s String, we can
         // pass a slice of the entire String. This makes our API more general
-         let my_string = String::from("hello world");
-         
-         // first_word works on slices of `String`s
-         let word = first_word(&my_string[..]);
+        let my_string = String::from("hello world");
 
-         let my_string_literal = "hello world";
+        // first_word works on slices of `String`s
+        let word = first_word(&my_string[..]);
 
-         // first_word works on slices of string literals
-         let word = first_word(&my_string_literal[..]);
+        let my_string_literal = "hello world";
 
-         // Because string literals *are* string slices already,
-         // this works too, without the slice syntax!
-         let word = first_word(my_string_literal);
+        // first_word works on slices of string literals
+        let word = first_word(&my_string_literal[..]);
 
+        // Because string literals *are* string slices already,
+        // this works too, without the slice syntax!
+        let word = first_word(my_string_literal);
     }
 
     // OTHER SLICES
@@ -129,6 +127,4 @@ fn main() {
     let slice = &a[1..3];
 
     // This slice has the type &[i32]. It works for some other types.
-
-
 }

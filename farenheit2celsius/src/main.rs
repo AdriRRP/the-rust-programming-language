@@ -4,44 +4,38 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     match args.len() {
         1 => {
-           usage();
-        },
+            usage();
+        }
         3 => {
             let val: f32 = match args[1].parse() {
-                Ok(n) => {
-                    n
-                },
+                Ok(n) => n,
                 Err(_) => {
                     println!("error: first argument not floating point number");
                     usage();
                     return;
-                },
+                }
             };
 
             let unit: bool = match &args[2][..] {
-                "farenheit" | "f" | "F" => {
-                   true 
-                },
-                "celsius" | "c" | "C" => {
-                   false 
-                },
+                "farenheit" | "f" | "F" => true,
+                "celsius" | "c" | "C" => false,
                 _ => {
                     println!("error: second argument not valid unit");
                     usage();
                     return;
-                },
+                }
             };
-            
+
             let result_unit: &str = if unit { "celsius" } else { "farenheit" };
             let result: f32 = far2cel(val, unit);
 
             println!("{} {}", result, result_unit);
-        },
+        }
         _ => {
             println!("error: arguments doesn't match");
             usage();
             return;
-        },
+        }
     };
 }
 

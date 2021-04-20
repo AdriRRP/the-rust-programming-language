@@ -3,11 +3,9 @@ fn main() {
 }
 
 fn the_twelve_days_of_christmas() -> String {
-    
     let mut poem = String::new();
 
     for day in 1..13 {
-
         poem.push_str("On the ");
         poem.push_str(&ordinal(day));
         poem.push_str(" day of Christmas my true love sent to me\n");
@@ -23,7 +21,6 @@ fn the_twelve_days_of_christmas() -> String {
 
         poem.push_str(&present(1));
         poem.push_str(".\n\n");
-
     }
     return poem;
 }
@@ -43,7 +40,8 @@ fn present(n: u8) -> String {
         11 => "eleven pipers piping",
         12 => "twelve drummers drumming",
         _ => "???",
-    }.to_string();
+    }
+    .to_string();
 }
 
 fn ordinal(n: u8) -> String {
@@ -61,5 +59,6 @@ fn ordinal(n: u8) -> String {
         11 => "eleventh",
         12 => "twelfth",
         _ => "???",
-    }.to_string();
+    }
+    .to_string();
 }

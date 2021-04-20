@@ -1,6 +1,6 @@
 fn main() {
     let number = 3;
-    
+
     if number < 5 {
         println!("condition was true");
     } else {
@@ -38,14 +38,14 @@ fn main() {
             break counter * 2;
         }
     };
- 
+
     println!("the value of result if {}", result);
 
     let mut number = 3;
 
     while number != 0 {
         println!("{}!", number);
- 
+
         number -= 1;
     }
 
@@ -58,11 +58,11 @@ fn main() {
         println!("the value is: {}", a[index]);
         index += 1;
     }
-     
+
     for element in a.iter() {
         println!("the value is {}", element);
     }
-   
+
     for element in (1..4).rev() {
         println!("the value is {}", element);
     }

@@ -1,6 +1,6 @@
 fn main() {
     println!("Hello, world!");
-    
+
     another_function();
     another_function_with_param(15);
     another_function_with_params(10, 15);
