@@ -46,7 +46,9 @@ fn to_pig_latin(s: &str) -> String {
 
         if is_consonant(first_char) {
             result.push_str(&s[1..]);
-            result.push_str("-fay");
+            result.push('-');
+            result.push(*first_char);
+            result.push_str("ay");
         } else {
             result.push_str(&s);
 
