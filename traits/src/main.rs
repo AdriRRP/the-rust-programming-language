@@ -354,9 +354,9 @@ fn main() {
     fn largest_clone<T: PartialOrd + Clone>(list: &[T]) -> T {
         let mut largest = list[0].clone();
         
-        for &item in list.clone() {
-            if item > largest {
-                largest = item;
+        for item in list {
+            if item > &largest {
+                largest = item.clone();
             }
         }
 
@@ -382,12 +382,12 @@ fn main() {
      *  
      */ 
 
-    fn largest_ref<T: PartialOrd + Clone>(list: &[T]) -> T {
-        let mut largest = list[0].clone();
+    fn largest_ref<T: PartialOrd>(list: &[T]) -> &T {
+        let mut largest = &list[0];
         
-        for &item in list.clone() {
-            if item > largest {
-                largest = item;
+        for item in list {
+            if &item > &largest {
+                largest = &item;
             }
         }
 
