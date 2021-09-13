@@ -129,4 +129,72 @@ mod tests {
         }
     }
 
+    /*
+     * By default, tests runs in parallel. To avoid it:
+     *   
+     *   cargo test -- --test-threads=1
+     *
+     */
+
+
+    /*
+     * By default, stdout is hidden unless fail. To avoid it:
+     *   
+     *   cargo test -- --show-output
+     *
+     */
+
+    /*
+     * Running a subset of tests whose names contains 'add'
+     *
+     *   cargo test add
+     *
+     */
+
+    /*
+     * To ignore tests unless specificall y requested:
+     *
+     *   #[test]
+     *   #[ignore]
+     *   fn expensive_test() {
+     *     // code that takes an hour to run...
+     *   }
+     *
+     * To request it:
+     *
+     * cargo test -- --ignored
+     *
+     */
+
+    /*
+     * UNIT TESTS
+     *
+     * Test each unit of code in isolation from the rest of the code.
+     * 
+     * Using #[cfg(test)] annotations we avoid to compile test code in final
+     * bin.
+     *
+     * Unit test can test private functions of modules, but we need to import
+     * explicitly the module to test.
+     *
+     * Unit tests go in the same files as the code.
+     *
+     */
+
+    /*
+     * INTEGRATION TESTS
+     *
+     * Integration tests use your library in the same way any other code would
+     * (can only call functions that are part of your library's public API)
+     *
+     * They're placed in tests directory, at same level that src.
+     *
+     * Rusts executes a test foreach file in tests directory.
+     *
+     * If we want to add a common setup for all tests, we need to create 
+     * ./tests/common/mod.rs instead of ./tests/common.rs beacause in last 
+     * case rust run common.rs as a test.
+     *
+     */
+
 }
