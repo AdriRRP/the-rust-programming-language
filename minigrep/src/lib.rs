@@ -17,7 +17,11 @@ impl Config {
         let query = args[1].clone();
         let filename = args[2].clone();
 
-        let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
+        let case_sensitive = if args.len() == 4 {
+            args[3].clone().parse().unwrap()
+        } else {
+            env::var("CASE_INSENSITIVE").is_err()
+        };
 
         Ok(Config {
             query,
