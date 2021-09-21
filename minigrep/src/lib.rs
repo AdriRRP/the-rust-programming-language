@@ -84,7 +84,7 @@ Trust me.";
 
         assert_eq!(
             vec!["Rust:", "Trust me."],
-            search(query, contents)
+            search_case_insensitive(query, contents)
         );
     }
 }
